@@ -1,0 +1,13 @@
+.item {
+  margin: 15px 0;
+  background-color: yellowgreen;
+}
+
+.item img {
+  width: 30px;
+  border-radius: 50%;
+}
+
+.item span {
+  display: block;
+}
