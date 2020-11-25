@@ -7,18 +7,3 @@
   grid-template-columns: 2fr 10fr;
   gap: 10px;
 }
-
-.header {
-  grid-area: h;
-  background-color: aqua;
-}
-
-.nav {
-  grid-area: n;
-  background-color: blue;
-}
-
-.profile {
-  grid-area: c;
-  background-color: brown;
-}
