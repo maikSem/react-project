@@ -3,10 +3,17 @@
   background-color: blue;
 }
 
-.item {
-  color: white;
+.nav ul {
+  margin: 0;
+  padding: 20px;
+  list-style: none;
 }
 
-.active {
-  text-transform: uppercase;
+.item a {
+  color: white;
+  text-decoration: none;
+}
+
+.item a.activeLink {
+  color: gold;
 }
