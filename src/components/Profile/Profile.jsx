@@ -4,7 +4,7 @@ import classes from './Profile.module.css';
 
 const Profile = () => {
   return (
-    <main className={classes.profile}>
+    <main>
       <div>
         <img src="" alt="#" />
       </div>
