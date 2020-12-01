@@ -1,12 +1,12 @@
 .dialogs {
-display: grid;
+  display: grid;
   grid-template-columns: 2fr 10fr;
 }
 
-.dialogsList{
+.dialogsList {
   list-style: none;
 }
 
 .dialog {
-
+  display: block;
 }
