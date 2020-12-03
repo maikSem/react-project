@@ -1,0 +1,12 @@
+.dialog {
+  display: block;
+}
+
+.dialogLink {
+  color: antiquewhite;
+  text-decoration: none;
+}
+
+.dialogLink.activeLink {
+  color: aqua;
+}

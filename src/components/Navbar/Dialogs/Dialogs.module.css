@@ -7,20 +7,3 @@
   padding: 10px;
   list-style: none;
 }
-
-.dialog {
-  display: block;
-}
-
-.dialogLink {
-  color: antiquewhite;
-  text-decoration: none;
-}
-
-.dialogLink.activeLink {
-  color: aqua;
-}
-
-.message {
-  color: aliceblue;
-}
