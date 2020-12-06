@@ -1,0 +1,13 @@
+.friends {
+  background-color: lavender;
+}
+
+.friendsTitle {
+
+}
+
+.friendsList {
+  display: flex;
+  justify-content: space-around;
+  list-style: 0;
+}
