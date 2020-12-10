@@ -6,7 +6,8 @@ let state = {
       {id: 1, post: 'This is my first post!', likesCount: 12},
       {id: 2, post: 'This is my second post', likesCount: 16},
       {id: 3, post: 'This is my last post', likesCount: 10}
-    ]
+    ],
+    newPostText: 'SFAFSAFASFAF'
   },
   dialogsPage: {
     dialogs: [
@@ -47,16 +48,24 @@ let state = {
   }
 }
 
-export let addPost = (postMessage) => {
+window.state = state;
+
+export let addPost = () => {
   let newPost = {
     id: 3,
-    post: postMessage,
+    post: state.profilePage.newPostText,
     likesCount: 10
   }
-
   state.profilePage.posts.push(newPost);
+  state.profilePage.newPostText = '';  // Занулили текс в textarea - my-posts
   rerenderEntireTree(state);
-
 }
+
+export let updateNewPostText = (newText) => {
+
+  state.profilePage.newPostText = newText;
+  rerenderEntireTree(state);
+}
+
 
 export default state;
