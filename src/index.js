@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import reportWebVitals from './reportWebVitals';
-import store from "./redux/state"
+import store from "./redux/redux-store"
 import App from "./App";
 
-let _callSubscriber = (state) => {
+let rerenderEntireTree  = (state) => {
   ReactDOM.render(
     <React.StrictMode>
       <App state={state}
@@ -15,7 +15,10 @@ let _callSubscriber = (state) => {
   )
 }
 
-_callSubscriber(store.getState());
-store.subscribe(_callSubscriber);
+rerenderEntireTree (store.getState());
+store.subscribe(() => {
+  let state = store.getState();
+  rerenderEntireTree(state)
+});
 
 reportWebVitals();
