@@ -3,9 +3,7 @@ import classes from './Dialogs.module.css';
 import DialogsItem from "./DialogsItem/DialogsItem";
 import Message from "./Message/Message";
 
-
 const Dialogs = (props) => {
-
   let dialogsElements = props.dialogsPage.dialogs.map(d => <DialogsItem name={d.name} id={d.id}/>);
 
   let messagesElements = props.dialogsPage.messages.map(m => <Message message={m.message}/>);
@@ -18,7 +16,7 @@ const Dialogs = (props) => {
 
   let onMessageChange = () => {
     let text = newMessageElement.current.value;
-    props.updateNewMessageTextCreator(text);
+    props.updateNewMessageText(text);
   }
 
   return (
