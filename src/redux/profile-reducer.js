@@ -12,24 +12,22 @@ let initialState = {
 
 const profileReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_POST: {
+    case ADD_POST:
       let newPost = {
         id: 3,
         post: state.newPostText,
         likesCount: 10
       }
-      let stateCopy = {...state};
-      stateCopy.posts = [...state.posts];
-      stateCopy.posts.push(newPost)
-      stateCopy.newPostText = '';
-      return stateCopy;
-    }
-    case UPDATE_NEW_POST_TEXT: {
-      let stateCopy = {...state};
-      stateCopy.posts = [...state.posts];
-      stateCopy.newPostText = action.newText;
-      return stateCopy;
-    }
+      return {        // редусеры тоже чистые функции, они не должны изменять данные которые в них приходят, поэтому мы копируем state который в редусер приходит!
+        ...state,
+        newPostText: '',
+        posts: [...state.posts, newPost] // таким образом мы добавляем новый элемент в массив, где newPost является новым элементом
+      };
+    case UPDATE_NEW_POST_TEXT:
+      return {
+        ...state,
+        newPostText: action.newText
+      };
     default:
       return state;
   }
@@ -44,4 +42,4 @@ export const updateNewPostTextActionCreator = (text) => {
   }
 }
 
-  export default profileReducer;
+export default profileReducer;
