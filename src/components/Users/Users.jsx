@@ -1,42 +1,20 @@
 import React from 'react';
 import classes from './Users.module.css';
+import * as axios from "axios";
+import userPhoto from '../../assets/images/userpic.png'
 
 let Users = (props) => {
   if (props.users.length === 0) {
-    props.setUsers([
-      {
-        id: 1,
-        followed: true,
-        fullName: 'Misha S',
-        status: 'I am boss',
-        location: {city: 'Ekaterinburg', country: 'Russia'},
-        userPic: 'https://cdn0.iconfinder.com/data/icons/faces-general/100/male_bald_flat-512.png'
-      },
-      {
-        id: 2,
-        followed: true,
-        fullName: 'Alesya S',
-        status: 'I am wife the boss',
-        location: {city: 'Ekaterinburg', country: 'Russia'},
-        userPic: 'https://cdn0.iconfinder.com/data/icons/faces-general/100/male_bald_flat-512.png'
-      },
-      {
-        id: 3,
-        followed: false,
-        fullName: 'Pasha S',
-        status: 'I am brother the boss',
-        location: {city: 'Kachkanar', country: 'Russia'},
-        userPic: 'https://cdn0.iconfinder.com/data/icons/faces-general/100/male_bald_flat-512.png'
-      },
-    ])
+   axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
+     props.setUsers(response.data.items);
+   });
   }
-
   return (
     <ul>{
       props.users.map(u => <li key={u.id}>
         <div>
           <div>
-            <img src={u.userPic} className={classes.userPhoto} alt="#"/>
+            <img src={u.photos.small || userPhoto} className={classes.userPhoto} alt="#"/>
           </div>
           <div>
             {u.followed
@@ -50,12 +28,12 @@ let Users = (props) => {
         </div>
         <div>
           <span>
-            <div>{u.fullName}</div>
+            <div>{u.name}</div>
             <div>{u.status}</div>
           </span>
           <span>
-            <div>{u.location.country}</div>
-            <div>{u.location.city}</div>
+            <div>{"u.location.country"}</div>
+            <div>{"u.location.city"}</div>
           </span>
         </div>
       </li>)
