@@ -1,9 +1,14 @@
 let FOLLOW = 'FOLLOW';
 let UNFOLLOW = 'UNFOLLOW';
-let SET_USERS = 'SET_USERS'
+let SET_USERS = 'SET_USERS';
+let SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
+let SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT'
 
 let initialState = {
-  users: []
+  users: [],
+  pageSize: 5,
+  totalUsersCount: 21,
+  currentPage: 1
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -30,7 +35,18 @@ const usersReducer = (state = initialState, action) => {
       }
     case SET_USERS: {
       return {
-        ...state, users: [...state.users, ...action.users] //Склеиваем два массива (юзеры которые были и которые пришли с экшном)
+        ...state, users: action.users
+        // ...state, users: [...state.users, ...action.users] //Склеиваем два массива (юзеры которые были и которые пришли с экшном)
+      }
+    }
+    case SET_CURRENT_PAGE: {
+      return {
+        ...state, currentPage: action.currentPage
+      }
+    }
+    case SET_TOTAL_USERS_COUNT: {
+      return {
+        ...state, totalUsersCount: action.totalCount
       }
     }
     default:
@@ -41,6 +57,8 @@ const usersReducer = (state = initialState, action) => {
 export const followAC = (userId) => ({type: FOLLOW, userId});
 export const unfollowAC = (userId) => ({type: UNFOLLOW, userId});
 export const setUsersAC = (users) => ({type: SET_USERS, users});
+export const setCurrentPageAC = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage});
+export const setTotalUsersCountAC = (totalCount) => ({type: SET_TOTAL_USERS_COUNT, totalCount});
 
 
 export default usersReducer;
