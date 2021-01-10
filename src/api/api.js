@@ -13,6 +13,12 @@ export const usersAPI = {
     return instance.get(`users?page=${currentPage}&count=${pageSize}`).then(response => {
       return response.data; // возвращяем не все данные которые пришли с get-запросом, а только data, ибо в компоненту должно приходить только те данные которые нужны.
     })
+  },
+  follow(userId) {
+    return instance.post(`follow/${userId}`)
+  },
+  unfollow(userId) {
+    return instance.delete(`follow/${userId}`)
   }
 }
 
