@@ -27,11 +27,7 @@ export const usersAPI = {
 
 export const authAPI = {
   authUserData() {
-    return instance.get(`auth/me`).then(response => {
-      if (response.data.resultCode === 0) {
-        return response.data.data;
-      }
-    })
+    return instance.get(`auth/me`);
   }
 }
 
