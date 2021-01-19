@@ -3,18 +3,26 @@ import React from 'react';
 class ProfileStatus extends React.Component {
 
   state = {
-    editMode: false
+    editMode: false,
+    status: this.props.status
   }
 
-  activateEditMode () {
+  activateEditMode = () => {
     this.setState({
       editMode: true
     })
   }
 
-  deactivate () {
+  deactivate = () => {
     this.setState({
       editMode: false
+    });
+    this.props.updateUserStatusTC(this.state.status);
+  }
+
+  onStatusChange = (e) => {
+    this.setState({
+      status: e.currentTarget.value   //value input'a
     })
   }
 
@@ -23,12 +31,12 @@ class ProfileStatus extends React.Component {
       <div>
         {!this.state.editMode &&
         <div>
-          <span onClick={this.activateEditMode.bind(this)}>{this.props.status}</span>
+          <span onClick={this.activateEditMode}>{this.props.status || 'No status'}</span>
         </div>
         }
         {this.state.editMode &&
           <div>
-            <input autoFocus={true} onBlur={this.deactivate.bind(this)} value={this.props.status}/>
+            <input onChange={this.onStatusChange} autoFocus={true} onBlur={this.deactivate} value={this.state.status}/>
           </div>
         }
       </div>

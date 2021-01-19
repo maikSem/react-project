@@ -8,15 +8,19 @@ const ProfileInfo = (props) => {
 
     return <Preloader/>
   }
-  let userSocialContactsArr = Object.values(props.userProfile.contacts).filter( el => {return el != null});
-  let userContacts = userSocialContactsArr.map(c => <li><a href={`https://`+ c}>{c}</a></li>);
+  let userSocialContactsArr = Object.values(props.userProfile.contacts).filter(el => {
+    return el != null
+  });
+  let userContacts = userSocialContactsArr.map(c => <li><a href={`https://` + c}>{c}</a></li>);
 
   return (
     <div>
       <div>
         <img src='https://images.indianexpress.com/2020/05/the-walking-dead-759.jpg' alt='#'/>
       </div>
-      <ProfileStatus status={'HELLO NIGA'}/>
+      <ProfileStatus status={props.status}
+                     updateUserStatusTC={props.updateUserStatusTC}
+      />
       <div className={classes.descriptionBlock}>
         <img src={props.userProfile.photos.small} alt=""/>
         <p>{props.userProfile.fullName}</p>
