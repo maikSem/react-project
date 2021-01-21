@@ -14,7 +14,7 @@ const LoginForm = (props) => {
         <Field component={'input'} name={'rememberMe'} type={'checkbox'}/> remember me
       </div>
       <div>
-        <button component={'s'} type={'submit'}>Login</button>
+        <button type={'submit'}>Login</button>
       </div>
     </form>
   )
