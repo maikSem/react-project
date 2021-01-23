@@ -1,10 +1,11 @@
 import React from 'react';
 import classes from './Message.module.css';
 import {Field, reduxForm} from "redux-form";
-import {Textarea} from "../../common/FormsControls/FormsControls";
+import {FormElement} from "../../common/FormsControls/FormsControls";
 import {maxLengthCreator, required} from "../../../utils/validators/validators";
 
 const maxLength5 = maxLengthCreator(5);
+const Textarea = FormElement('textarea');
 
 const AddMessageForm = (props) => {
   return (
