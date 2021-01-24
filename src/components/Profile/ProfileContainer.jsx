@@ -12,7 +12,7 @@ class ProfileContainer extends React.Component {
 
     let userId = this.props.match.params.userId;
     if (!userId) {
-      userId = 13569;
+      userId = this.props.authorizedUserId;
     }
 
     this.props.getUserProfileTC(userId);
@@ -31,13 +31,14 @@ class ProfileContainer extends React.Component {
 
 let mapStateToProps = (state) => ({
   userProfile: state.profilePage.userProfile,
-  status: state.profilePage.status
+  status: state.profilePage.status,
+  authorizedUserId: state.auth.userId
+
 });
 
 export default compose(
   connect(mapStateToProps, {getUserProfileTC, getUserStatusTC, updateUserStatusTC}),
-  withRouter,
-  withAuthRedirect
+  withRouter
 )(ProfileContainer);
 
 // let AuthRedirectComponent = withAuthRedirect(ProfileContainer); // обертка над Profilecontainer для  редиректа в /login
