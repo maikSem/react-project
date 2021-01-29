@@ -20,7 +20,7 @@ const ProfileInfo = (props) => {
         <img src='https://images.indianexpress.com/2020/05/the-walking-dead-759.jpg' alt='#'/>
       </div>
       <ProfileStatusHook status={props.status}
-                     updateUserStatusTC={props.updateUserStatusTC}
+                         updateUserStatusTC={props.updateUserStatusTC}
       />
       <div className={classes.descriptionBlock}>
         <img src={props.userProfile.photos.small} alt=""/>

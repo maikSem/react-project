@@ -3,7 +3,8 @@ import classes from './MyPosts.module.css';
 import Post from './Post/Post';
 import AddNewPostReduxForm from "./Post/PostForm";
 
-const MyPosts = (props) => {
+const MyPosts = props => {
+  console.log('render');
   let postsElements = props.posts.map(p => <Post message={p.post} like={p.likesCount} key={p.id}/>);
 
   const onAddPost = (values) => {
@@ -21,6 +22,6 @@ const MyPosts = (props) => {
       </div>
     </div>
   )
-}
+};
 
 export default MyPosts;
