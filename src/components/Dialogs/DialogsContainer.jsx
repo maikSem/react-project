@@ -11,21 +11,9 @@ let mapStateToProps = (state) => {
     dialogsPage: state.dialogsPage
   }
 }
-let mapDispatchToProps = (dispatch) => {
-  return {
-    addMessage: (newMessageBody) => {
-      dispatch(addMessage(newMessageBody))
-    }
-  }
-}
 
 export default compose(
-  connect(mapStateToProps, mapDispatchToProps),
+  connect(mapStateToProps, {addMessage}),
   withAuthRedirect
-)(Dialogs)
+)(Dialogs);
 
-// let AuthRedirectComponent = withAuthRedirect(Dialogs);
-//
-// const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent);
-//
-// export default DialogsContainer;

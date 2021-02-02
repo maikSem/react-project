@@ -1,4 +1,4 @@
-let ADD_MESSAGE = 'ADD-MESSAGE';
+let ADD_MESSAGE = 'social-network/dialogs/ADD-MESSAGE';
 
 let initialState = {
   dialogs: [

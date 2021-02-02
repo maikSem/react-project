@@ -1,6 +1,6 @@
 import {getAuthUserDataTC} from "./auth-reducer";
 
-let INITIALIZED_SUCCESS = 'INITIALIZED_SUCCESS';
+let INITIALIZED_SUCCESS = 'social-network/app/INITIALIZED_SUCCESS';
 
 let initialState = {
   initialized: false
