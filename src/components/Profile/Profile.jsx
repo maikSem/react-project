@@ -13,7 +13,10 @@ const Profile = props => {
     <main>
       <ProfileInfo userProfile={props.userProfile}
                    updateUserStatusTC={props.updateUserStatusTC}
-                   status={props.status}/>
+                   status={props.status}
+                   isOwner={props.isOwner}
+                   saveUserPic={props.saveUserPic}
+      />
       <MyPostsContainer />
     </main>
   )

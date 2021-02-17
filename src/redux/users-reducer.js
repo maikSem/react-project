@@ -11,7 +11,7 @@ let TOGGLE_IS_FOLLOWING_PROGRESS = 'social-network/users/TOGGLE_IS_FOLLOWING_PRO
 
 let initialState = {
   users: [],
-  pageSize: 5,
+  pageSize: 20,
   totalUsersCount: 0,
   currentPage: 1,
   followingProgress: []
